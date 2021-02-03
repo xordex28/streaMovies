@@ -1,0 +1,92 @@
+.content {
+    width           : 100%;
+    height          : 100vh;
+    background-color: #141414;
+    background-size: cover;
+}
+
+.mostPopular {
+    width              : 100%;
+    height             : 90%;
+    background-color   : white;
+    background-position: center;
+    background-repeat  : no-repeat;
+    background-size    : 100% 100%;
+    display            : flex;
+    align-items        : center;
+}
+
+.detail {
+    width      : 50%;
+    height     : 40%;
+    color      : white;
+    margin-left: 10vw;
+
+}
+
+.titleDetail {
+    font-family  : 'Londrina Solid', cursive;
+    font-size    : 3vw;
+    margin-bottom: 1.5rem;
+}
+
+.contentDetail {
+    font-size  : 1.2vw;
+    line-height: normal;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, .45);
+    font-weight: 400;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.actionDetail {
+    width          : 50%;
+    display        : flex;
+    justify-content: space-between;
+}
+
+.actionDetail>button {
+    white-space     : nowrap;
+    background-color: rgba(255, 255, 255, 0.4);
+    width           : auto;
+    color           : white;
+    font-size       : 1.2vw !important;
+    line-height     : normal !important;
+    font-weight     : 400 !important;
+    width           : 48%;
+    height          : 50px;
+}
+
+.actionDetail>button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.actionDetail>button {
+    display        : flex;
+    justify-content: space-around;
+    align-items    : center;
+}
+
+.imgActionDetailInfo {
+    width : 20%;
+    height: auto;
+    filter: invert(100%)
+}
+
+.imgActionDetailFavorite {
+    width : 20%;
+    height: auto;
+    filter: invert(100%)
+}
+
+.trending {
+    width              : auto;
+    display            : flex;
+    margin-left: 5vw;
+    margin-top: 2.5rem;
+}
+
+.titleSection{
+    font-family: 'Noto Sans', sans-serif;
+    color: rgb(219, 126, 134);
+    font-size: 1.3vw;
+}

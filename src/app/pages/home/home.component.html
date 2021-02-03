@@ -1,0 +1,18 @@
+<div class="content">
+    <div class="mostPopular" [ngStyle]="{'background-image': 'url('+mostPopular['url']+')'}">
+        <div class="detail">
+            <p class="titleDetail">{{mostPopular['title']}}</p>
+            <p class="contentDetail">{{mostPopular['overview']}}</p>
+
+            <div class="actionDetail">
+                <button type="button" mat-button (click)="addFavorite(mostPopular)"><img src="../../../assets/iconos/heart.svg" class="imgActionDetailFavorite"> Add
+                    Favorite</button>
+                <button type="button" mat-button><img src="../../../assets/iconos/information.svg" class="imgActionDetailInfo"> View
+                    Detail</button>
+            </div>
+        </div>
+    </div>
+    <div class="trending">
+        <p class="titleSection">More popular</p>
+    </div>
+</div>
