@@ -1,5 +1,5 @@
 <div class="content">
-    <div class="mostPopular" [ngStyle]="{'background-image': 'url('+mostPopular['url']+')'}">
+    <div class="mostPopular" [ngStyle]="{'background-image': 'url('+mostPopular['backdrop_path']+')'}">
         <div class="detail">
             <p class="titleDetail">{{mostPopular['title']}}</p>
             <p class="contentDetail">{{mostPopular['overview']}}</p>
@@ -7,12 +7,33 @@
             <div class="actionDetail">
                 <button type="button" mat-button (click)="addFavorite(mostPopular)"><img src="../../../assets/iconos/heart.svg" class="imgActionDetailFavorite"> Add
                     Favorite</button>
-                <button type="button" mat-button><img src="../../../assets/iconos/information.svg" class="imgActionDetailInfo"> View
+                <button type="button" mat-button (click)="goToMovie(mostPopular['id'])"><img src="../../../assets/iconos/information.svg" class="imgActionDetailInfo"> View
                     Detail</button>
             </div>
         </div>
     </div>
     <div class="trending">
-        <p class="titleSection">More popular</p>
+        <p class="titleSection">More popular Movies</p>
+        <carousel class="caroussel" objectFit="cover"
+			[images]="listTrendingMap"  [borderRadius]="10" (events)="getEvent($event)">
+		</carousel>
+    </div>
+
+    <div class="trending">
+        <p class="titleSection">More popular Serie</p>
+        <carousel class="caroussel" (events)="getEvent($event)"
+            [images]="listTrendingTvMap"
+            objectFit="cover"
+            [borderRadius]="10">
+		</carousel>
+    </div>
+
+    <div class="trending">
+        <p class="titleSectionTop">the most acclaimed movies</p>
+        <div class="sectionTopRated">
+            <div class="imgTopRated" *ngFor="let movie of mostAcclaimed" [ngStyle]="{'background-image': 'url('+movie['url']+')'}">
+            </div>
+        </div>
     </div>
 </div>
+<div class="content"></div>

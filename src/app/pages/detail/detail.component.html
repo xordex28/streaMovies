@@ -1,1 +1,16 @@
-<p>detail works!</p>
+<div class="content" *ngIf="movie">
+    <div class="backdropPath"  [ngStyle]="{'background-image': 'url('+movie['backdrop_path']+')'}">
+        <div class="detail">
+            <div class="titleDetailContainer">
+                <p class="titleDetail">{{movie['title']}}</p>
+                <p class="titleDetailSub">{{movie['tagline']}}</p>
+                <p class="titleDetailSub"><b>User Votes:</b> {{movie['vote_average'] * 10}}%</p>
+                <button mat-button aria-label="Add Favorite" (click)="addToFavorite()">
+                    <mat-icon color="warn">favorite</mat-icon> Add Favorite
+                  </button>
+            </div>
+        </div>
+    </div>
+    <div class="titleImage" [ngStyle]="{'background-image': 'url('+movie['poster_path']+')'}"></div>
+    <div class="postBack"></div>
+</div>

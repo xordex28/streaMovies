@@ -11,13 +11,18 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthenticateInterceptor } from './interceptors/authenticate.interceptor';
 import { HomeComponent } from './pages/home/home.component';
 import { NavbarComponent } from './layouts/navbar/navbar.component';
+import { CarouselComponent } from './utils/carousel/carousel.component';
+import { IvyCarouselModule } from 'angular-responsive-carousel';
+import { FavoriteComponent } from './pages/favorite/favorite.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DetailComponent,
     HomeComponent,
-    NavbarComponent
+    NavbarComponent,
+    CarouselComponent,
+    FavoriteComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +30,8 @@ import { NavbarComponent } from './layouts/navbar/navbar.component';
     FlexLayoutModule,
     BrowserAnimationsModule,
     AngularMaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    IvyCarouselModule
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthenticateInterceptor, multi: true }],
   bootstrap: [AppComponent]

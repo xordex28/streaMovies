@@ -2,7 +2,7 @@
     width           : 100%;
     height          : 100vh;
     background-color: #141414;
-    background-size: cover;
+    background-size : cover;
 }
 
 .mostPopular {
@@ -79,14 +79,51 @@
 }
 
 .trending {
-    width              : auto;
-    display            : flex;
-    margin-left: 5vw;
-    margin-top: 2.5rem;
+    width        : 100%;
+    height       : 30%;
+    display      : flex;
+    flex-wrap    : wrap;
+    margin-bottom: 3rem;
 }
 
-.titleSection{
+.titleSection {
+    margin-left: 5vw;
+    margin-top : 2.5rem;
     font-family: 'Noto Sans', sans-serif;
-    color: rgb(219, 126, 134);
-    font-size: 1.3vw;
+    color      : rgb(219, 126, 134);
+    font-size  : 1.3vw;
+    width      : 100%;
+}
+
+.caroussel {
+    margin-top: 10px;
+
+}
+
+.titleSectionTop {
+    margin-left: 5vw;
+    margin-top : 2.5rem;
+    font-family: 'Noto Sans', sans-serif;
+    color      : rgb(219, 126, 134);
+    font-size  : 1.3vw;
+    width      : 100%;
+    text-align : center;
+}
+
+.sectionTopRated {
+    margin-top     : 10px;
+    width          : 40%;
+    height         : 100%;
+    display        : flex;
+    flex-wrap      : wrap;
+    justify-content: space-around;
+}
+
+.imgTopRated {
+    width              : calc(80% / 4);
+    height             : 100%;
+    background-position: center;
+    background-repeat  : no-repeat;
+    background-size    : 100% 100%;
+    border-radius: 10px;
 }

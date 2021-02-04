@@ -16,7 +16,14 @@ export class MoviesService {
   getTopRated(): Observable<object[]> {
     return this.http.get<object[]>(`${this.urlApi}/movie/top_rated`);
   }
-  getTrending(mediaType: string, time: string): Observable<object[]> {
-    return this.http.get<object[]>(`${this.urlApi}/trending/${mediaType}/${time}`);
+  getTrending(mediaType: string, time: string): Observable<object> {
+    return this.http.get<object>(`${this.urlApi}/trending/${mediaType}/${time}`);
+  }
+  getTrendingTv(): Observable<object> {
+    return this.http.get<object>(`${this.urlApi}/tv/popular`);
+  }
+
+  getMovieId(id:number): Observable<object>{
+    return this.http.get<object>(`${this.urlApi}/movie/${id}`);
   }
 }

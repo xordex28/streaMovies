@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ConfigurationService } from 'src/app/services/configuration.service';
 import { MoviesService } from 'src/app/services/movies.service';
 import { UserService } from 'src/app/services/user.service';
@@ -9,36 +10,75 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  listTrending: object[];
-  configuration: object = {};
   mostPopular: object = {};
-  constructor(private movieService: MoviesService, private configService: ConfigurationService, private userService:UserService) { }
+  listTrending: object[];
+  listTrendingMap: {
+    path: string
+  }[];
+  listTrendingTv: object[];
+  listTrendingTvMap: {
+    path: string
+  }[];
+
+  mostAcclaimed: object[];
+  configuration: object = {};
+
+
+
+  constructor(private movieService: MoviesService, private configService: ConfigurationService, private userService: UserService, private route: Router) { }
 
   async ngOnInit(): Promise<void> {
     this.configuration = await this.configService.getConfiguration();
-    console.log(this.configuration);
-
     await this.getTrending();
-    console.log(this.listTrending);
-
-    console.log(this.userService.getFavorites());
+    await this.getSerieTrending();
+    await this.getMostAcclaimed();
   }
 
   getTrending = async () => {
-    this.listTrending = await this.movieService.getTrending('all', 'day').toPromise();
-    this.mostPopular = { ...this.listTrending['results'][0], url: this.buildUrlImage(this.listTrending['results'][0]['backdrop_path'], 'original', 'secure_base_url') };
-    console.log(this.mostPopular);
+    const data = await this.movieService.getTrending('all', 'day').toPromise();
+    this.listTrending = [...data['results'].slice(0, 10)];
+    this.listTrendingMap = this.listTrending.map((current) => {
+      return { 'path': this.buildUrlImage(current['poster_path'], 'w154', 'secure_base_url') }
+    });
+    this.mostPopular = { ...this.listTrending[0] };
+    this.mostPopular['backdrop_path'] = this.buildUrlImage(this.mostPopular['backdrop_path'], 'original', 'secure_base_url');
+    this.mostPopular['poster_path'] = this.buildUrlImage(this.mostPopular['poster_path'], 'original', 'secure_base_url');
+
   }
 
-  buildUrlImage(url: string, dimentions: string, property: string) {
+  getSerieTrending = async () => {
+    const data = await this.movieService.getTrendingTv().toPromise();
+    this.listTrendingTv = [...data['results'].slice(0, 10)];
+    this.listTrendingTvMap = this.listTrendingTv.map((current) => {
+      return { 'path': this.buildUrlImage(current['poster_path'], 'w154', 'secure_base_url') }
+    });
+  }
+
+  getMostAcclaimed = async () => {
+    const data = await this.movieService.getTopRated().toPromise();
+    this.mostAcclaimed = [...data['results'].slice(0, 4)];
+    this.mostAcclaimed = this.mostAcclaimed.map((current) => {
+      return { ...current, url: this.buildUrlImage(current['poster_path'], 'original', 'secure_base_url') }
+    });
+  }
+
+  buildUrlImage = (url: string, dimentions: string, property: string) => {
     let urlM = this.configuration['images'][property];
     urlM = urlM + dimentions + url;
     return urlM;
   }
 
-  addFavorite(movie:object){
+  addFavorite = (movie: object) => {
     console.log('hoaaa');
     this.userService.addFavorite(movie);
     console.log(this.userService.getFavorites());
+  }
+
+  goToMovie = (id: number) => {
+    this.route.navigate(['detail', id]);
+  }
+
+  getEvent = (event: any) => {
+    console.log(event);
   }
 }

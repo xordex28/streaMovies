@@ -42,6 +42,7 @@
     filter: invert(100%);
     margin-right: 10px;
     justify-self: flex-end;
+    transition: scale 0.9s;
 }
 
 .notification:hover{
