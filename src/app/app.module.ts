@@ -14,6 +14,8 @@ import { NavbarComponent } from './layouts/navbar/navbar.component';
 import { CarouselComponent } from './utils/carousel/carousel.component';
 import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { FavoriteComponent } from './pages/favorite/favorite.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SearchComponent } from './pages/search/search.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { FavoriteComponent } from './pages/favorite/favorite.component';
     HomeComponent,
     NavbarComponent,
     CarouselComponent,
-    FavoriteComponent
+    FavoriteComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +34,9 @@ import { FavoriteComponent } from './pages/favorite/favorite.component';
     BrowserAnimationsModule,
     AngularMaterialModule,
     HttpClientModule,
-    IvyCarouselModule
+    IvyCarouselModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthenticateInterceptor, multi: true }],
   bootstrap: [AppComponent]

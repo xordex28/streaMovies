@@ -14,9 +14,11 @@
 }
 
 .logoImg{
-    width: 60%;
-    height: 90%;
-    background-color: white;
+    background-image: url('../../../assets/logos/logo.png');
+    background-position: center;
+    background-size: cover;
+    width: 40%;
+    height: 70%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -31,8 +33,10 @@
 
 .account{
     width: 20%;
+    text-align: end;
     height: 100%;
     align-items: center;
+    justify-content: flex-end;
     display: flex;
 }
 
@@ -52,9 +56,11 @@
 
 .inputSearch{
     width: 90%;
-    color: white;
+    color: black;
 }
 
-.inputSearch>input{
-    color: white;
+.iconSearch{
+    z-index: 999;
+    position: absolute;
+    right: 35%;
 }

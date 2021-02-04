@@ -1,11 +1,16 @@
 <div class="container">
     <div class="logo" [routerLink]="['/']">
-        <div class="logoImg">INSERTE LOGO</div>
+        <div class="logoImg"></div>
     </div>
     <div class="search">
-        <mat-form-field class="inputSearch">
-            <input matInput placeholder="Search" value="">
-        </mat-form-field>
+        <input class="inputSearch" placeholder="Search" [formControl]="myControl"
+        [matAutocomplete]="auto"   (keyup.enter)="onSearch()" value="">
+        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (click)="onSearch()">
+            <mat-option *ngFor="let option of filteredOptions | async" (click)="onSearch()" [value]="option['title']">
+              {{option['title'] | titlecase }}
+            </mat-option>
+          </mat-autocomplete>
+        <mat-icon class="iconSearch" (click)="onSearch()">search</mat-icon>
     </div>
     <div class="account"><button mat-icon-button color="warn" (click)="gotoFavorite()">
             <mat-icon>favorite</mat-icon>

@@ -1,6 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { ApiService } from './api.service';
 
 @Injectable({
@@ -23,7 +23,19 @@ export class MoviesService {
     return this.http.get<object>(`${this.urlApi}/tv/popular`);
   }
 
-  getMovieId(id:number): Observable<object>{
+  getMovieId(id: number): Observable<object> {
     return this.http.get<object>(`${this.urlApi}/movie/${id}`);
+  }
+
+  search(text: string): Observable<object> {
+    if(text!==''){
+      const params = new HttpParams()
+      .set('query', `${text.trim().replace(' ', '+')}`);
+    return this.http.get<object>(`${this.urlApi}/search/movie`, { params });
+
+    }else{
+      return of([]);
+    }
+    
   }
 }
