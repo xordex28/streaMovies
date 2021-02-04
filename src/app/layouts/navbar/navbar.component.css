@@ -24,6 +24,9 @@
     justify-content: center;
 }
 
+.logoImg{
+    cursor: pointer;
+}
 .search{
     width: 50%;
     height: 100%;

@@ -14,24 +14,23 @@
     </div>
     <div class="trending">
         <p class="titleSection">More popular Movies</p>
-        <carousel class="caroussel" objectFit="cover"
-			[images]="listTrendingMap"  [borderRadius]="10" (events)="getEvent($event)">
-		</carousel>
+        <div class="sectionImage">
+            <img [src]="mv['path']" (click)="goToMovie(listTrending[i]['id'])" *ngFor="let mv of listTrendingMap;let i=index" height="100%">
+        </div>
+
     </div>
 
     <div class="trending">
         <p class="titleSection">More popular Serie</p>
-        <carousel class="caroussel" (events)="getEvent($event)"
-            [images]="listTrendingTvMap"
-            objectFit="cover"
-            [borderRadius]="10">
-		</carousel>
+        <div class="sectionImage">
+            <img [src]="mv['path']" (click)="goToMovie(listTrendingTv[i]['id'])" *ngFor="let mv of listTrendingTvMap;let i=index" height="100%">
+        </div>
+        
     </div>
-
     <div class="trending">
         <p class="titleSectionTop">the most acclaimed movies</p>
         <div class="sectionTopRated">
-            <div class="imgTopRated" *ngFor="let movie of mostAcclaimed" [ngStyle]="{'background-image': 'url('+movie['url']+')'}">
+            <div class="imgTopRated" *ngFor="let movie of mostAcclaimed" (click)="goToMovie(movie['id'])" [ngStyle]="{'background-image': 'url('+movie['url']+')'}">
             </div>
         </div>
     </div>

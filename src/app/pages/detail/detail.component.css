@@ -40,17 +40,37 @@
     margin-left: 25%;
 }
 
-.titleDetailContainer{
+.titleDetailContainer {
     margin-bottom: 1.5rem;
-    margin-top: 20%;
+    margin-top   : 20%;
 }
+
 .titleDetail {
-    font-family  : 'Londrina Solid', cursive;
-    font-size    : 3vw;
+    font-family: 'Londrina Solid', cursive;
+    font-size  : 3vw;
     line-height: 30px;
 }
 
-.titleDetailSub{
-    font-family  : 'Noto Sans', sans-serif;
-    font-size    : 1vw;
+.titleDetailSub {
+    font-family: 'Noto Sans', sans-serif;
+    font-size  : 1vw;
+}
+
+
+.titleDetailSubD {
+    font-family: 'Noto Sans', sans-serif;
+    font-size  : 1.1vw;
+    color      : white;
+    width      : 45%;
+    margin-left: 25%;
+    line-height: 30px;
+}
+
+.detailTitle{
+    font-family: 'Noto Sans', sans-serif;
+    font-size  : 1.4vw;
+    margin-left: 25%;
+    padding-top: 1rem;
+    color: white;
+    font-weight: 900;
 }

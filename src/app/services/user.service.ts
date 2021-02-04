@@ -4,7 +4,9 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class UserService {
-  constructor() { }
+  constructor() { 
+    this.myFavorites = !(localStorage.getItem('favorite')) ? [] : JSON.parse(localStorage.getItem('favorite'));
+  }
   myFavorites: object[];
   getFavorites() {
 

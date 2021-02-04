@@ -9,7 +9,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class FavoriteComponent implements OnInit {
   favorites:object[] = [];
-  constructor(private userService:UserService,private router:Router) { }
+  constructor(private route:Router, private userService:UserService,private router:Router) { }
 
    ngOnInit(): void {
     this.favorites =  [...this.userService.getFavorites()];
@@ -21,5 +21,9 @@ export class FavoriteComponent implements OnInit {
     if(this.favorites.length <= 0){
       this.router.navigate(['/'])
     }
+  }
+
+  goToMovie = (id: number) => {
+    this.route.navigate(['detail', id]);
   }
 }

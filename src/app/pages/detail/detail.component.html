@@ -12,5 +12,9 @@
         </div>
     </div>
     <div class="titleImage" [ngStyle]="{'background-image': 'url('+movie['poster_path']+')'}"></div>
-    <div class="postBack"></div>
+    <div class="postBack">
+        <p class="detailTitle">Overview:</p>
+        <p class="titleDetailSubD">{{movie['overview']}}</p>
+
+    </div>
 </div>

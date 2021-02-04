@@ -1,9 +1,17 @@
+<mat-card class="full">
+    <mat-card-header>
+        <mat-card-title>Your favorites</mat-card-title>
+    </mat-card-header>
+</mat-card>
 <mat-card class="full" *ngFor="let favorite of favorites">
     <img class="imgDetail" [src]="favorite['poster_path']" width="80%" height="100%">
     <div class="titleDetail">{{favorite['title']}}</div>
     <div></div>
     <div class="contentDetail">{{favorite['overview']}} <br><br><button (click)="deleteFavorite(favorite['id'])" mat-button aria-label="Add Favorite">
         <mat-icon color="warn" >favorite</mat-icon> Remove Favorite
+    </button>
+    <button (click)="goToMovie(favorite['id'])" mat-button aria-label="Go Movie">
+        <mat-icon color="primary">info</mat-icon> View Detail
     </button></div>
    
 

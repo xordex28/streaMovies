@@ -1,5 +1,15 @@
-<div class="container">
-    <ul>
-        <li *ngFor="let movie of movies">{{movie['title']}}</li>
-    </ul>
-</div>
+<mat-card class="full" *ngFor="let movie of movies">
+    <img class="imgDetail" [src]="movie['poster_path']" width="80%" height="100%">
+    <div class="titleDetail">{{movie['title']}}</div>
+    <div></div>
+    <div class="contentDetail">{{movie['overview']}} <br><br><button (click)="addToFavorite(movie)" mat-button
+            aria-label="Add Favorite">
+            <mat-icon color="warn">favorite</mat-icon> Add Favorite
+        </button>
+        <button (click)="goToMovie(movie['id'])" mat-button aria-label="Go Movie">
+            <mat-icon color="primary">info</mat-icon> View Detail
+        </button>
+    </div>
+
+
+</mat-card>
